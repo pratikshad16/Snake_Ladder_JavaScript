@@ -1,0 +1,1 @@
+console.log("Welcome to Snake And Ladder Simulation Program");
