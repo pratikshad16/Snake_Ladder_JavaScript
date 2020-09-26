@@ -12,7 +12,7 @@ class SnakeLadder {
         }
         checkOption() 
         {
-            while(START_POSITION <= END_POSITION)
+            while(START_POSITION != END_POSITION)
             {
             let dieNumber = this.rollDie(6) 
             let option = this.rollDie(3)
@@ -20,26 +20,27 @@ class SnakeLadder {
                 case NO_PLAY:
                     console.log("You get: " + dieNumber)
                     console.log("It's a no play option")
-                    console.log("You will be at same position")
+                    START_POSITION = START_POSITION
+                    console.log("You are at same position==>"+START_POSITION)
                     console.log();
                     break;
                 
                 case SNAKE:
                     console.log("You get: " + dieNumber)
                     console.log("It's a snake option")
-                    var result = START_POSITION - dieNumber;
-                    if(result > 0) {
-                    console.log("You are at position==>" +(START_POSITION-dieNumber))
-                    } else {
-                        console.log("You are at position==>" +START_POSITION)
-                    }
+                    START_POSITION = START_POSITION - dieNumber;
+                    if(START_POSITION < 0) 
+                    START_POSITION = START_POSITION + dieNumber;
+                    console.log("You are at position==>" +START_POSITION)
                     console.log(); 
                     break;                 
 
                 case LADDER:
                     console.log("You get: " + dieNumber)
                     console.log("It's a ladder option")
-                    START_POSITION = START_POSITION + dieNumber;
+                     START_POSITION = START_POSITION + dieNumber;
+                    if(START_POSITION > END_POSITION)
+                    START_POSITION = START_POSITION - dieNumber;
                     console.log("You are at position==> " +START_POSITION)
                     console.log();
                     break;
