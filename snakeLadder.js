@@ -12,9 +12,10 @@ class SnakeLadder {
         }
         checkOption() 
         {
+            while(START_POSITION <= END_POSITION)
+            {
             let dieNumber = this.rollDie(6) 
             let option = this.rollDie(3)
-            console.log("Option is:"+option)
             switch (option) {
                 case NO_PLAY:
                     console.log("You get: " + dieNumber)
@@ -45,4 +46,5 @@ class SnakeLadder {
             }
         }
     }
+}
 module.exports = new SnakeLadder();
